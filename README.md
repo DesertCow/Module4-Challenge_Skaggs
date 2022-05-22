@@ -37,19 +37,19 @@ Version 0.1</h5>
 ---
 <p align="center"> <b>GIVEN</b> I am taking a code quiz <br><br></p>
 <p align="left"><b>WHEN</b> I click the start button<br>
-✔️ THEN I am presented with a series of prompts for password criteria<br>
-<b>WHEN</b> prompted for password criteria<br>
-✔️ THEN I select which criteria to include in the password<br>
-<b>WHEN</b> prompted for the length of the password<br>
-✔️ THEN I choose a length of at least 8 characters and no more than 128 characters<br>
-<b>WHEN</b> asked for character types to include in the password<br>
-✔️ THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters<br>
-<b>WHEN</b> I answer each prompt<br>
-✔️ THEN my input should be validated and at least one character type should be selected<br>
+❌ THEN a timer starts and I am presented with a question<br>
+<b>WHEN</b> I answer a question<br>
+❌ THEN I am presented with another question<br>
+<b>WHEN</b> I answer a question incorrectly<br>
+❌ THEN time is subtracted from the clock<br>
+<b>WHEN</b> all questions are answered or the timer reaches 0<br>
+❌ THEN the game is over<br>
+<b>WHEN</b> the game is over<br>
+❌ THEN I can save my initials and score<br>
 <b>WHEN</b> all prompts are answered<br>
-✔️ THEN a password is generated that matches the selected criteria<br>
+❌ THEN a password is generated that matches the selected criteria<br>
 <b>WHEN</b> the password is generated<br>
-✔️ THEN the password is either displayed in an alert or written to the page<br></p>
+❌ THEN the password is either displayed in an alert or written to the page<br></p>
 <br>
 <br>
 <br>
