@@ -32,10 +32,23 @@
           <q1 class="questionCount">Question #1</q1>
           <p class="question"></p>
           <ul class="answers">
-            <li><button class="btn btn-secondary answer1 ansbtn" id="btn-answer1"></button></li>
-            <li><button class="btn btn-secondary answer2 ansbtn" id="btn-answer2"></button></li>
-            <li><button class="btn btn-secondary answer3 ansbtn" id="btn-answer3"></button></li>
-            <li><button class="btn btn-secondary answer4 ansbtn" id="btn-answer4"></button></li>
+            <div class="col">
+              <li><button class="btn btn-secondary answer1 ansbtn" id="btn-answer1"></button></li>
+              <li><button class="btn btn-secondary answer2 ansbtn" id="btn-answer2"></button></li>
+              <li><button class="btn btn-secondary answer3 ansbtn" id="btn-answer3"></button></li>
+              <li><button class="btn btn-secondary answer4 ansbtn" id="btn-answer4"></button></li>    
+            </div>
+            <div class="col timerCard" id="timerCard">
+              <timecard>
+                <timerbox>
+                  <h2 class="displayTimer">45</h2>
+                </timerbox>
+                <lastResultbox>
+                    <h2 class="lastResult">Incorrect!</h2>
+                </lastResultbox>
+              </timecard>
+
+            </div>
           </ul>
         </div>
     </main>

@@ -46,10 +46,6 @@ Version 0.1</h5>
 ❌ THEN the game is over<br>
 <b>WHEN</b> the game is over<br>
 ❌ THEN I can save my initials and score<br>
-<b>WHEN</b> all prompts are answered<br>
-❌ THEN a password is generated that matches the selected criteria<br>
-<b>WHEN</b> the password is generated<br>
-❌ THEN the password is either displayed in an alert or written to the page<br></p>
 <br>
 <br>
 <br>

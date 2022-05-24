@@ -76,6 +76,18 @@ main div q1 {
   justify-content: center;
 }
 
+main timerbox {
+  /* background: var(--color3); */
+  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
+  border: 5px solid #eceff1;
+  border-radius: 8px;
+  /* box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 4px 3px; */
+  /* padding: 20px; */
+  width: 100%;
+  height: 50%;
+  margin: 5px;
+  border:5px solid var(--border);
+} 
 
 
 .card {
@@ -105,6 +117,21 @@ main div q1 {
   margin: 5px;
   border:30px solid var(--border);
 }
+
+ .timerCard {
+  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
+  border: 5px solid #eceff1;
+  border-radius: 8px;
+  box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
+    rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
+  padding: 20px;
+  max-width: 40%;
+  min-width: 100px;
+  min-height: 100px;
+  height: auto;
+  margin: 5px;
+  border:30px solid var(--border);
+} 
 
 .question {
   background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);

@@ -5,6 +5,9 @@
 // Debug Switch
 var Debug = false;
 
+// Set Game Length (Seconds)
+var gameLength = 15;
+
 var startButton = document.querySelector(".start-button");
 var highScoreButton = document.querySelector(".highScore-button");
 var ansButton1 = $('#btn-answer1');
@@ -27,6 +30,10 @@ var answer1El = document.querySelector(".answer1");
 var answer2El = document.querySelector(".answer2");
 var answer3El = document.querySelector(".answer3");
 var answer4El = document.querySelector(".answer4");
+
+var timerEl = document.querySelector(".displayTimer");
+var lastResult = document.querySelector(".lastResult");
+var currentTime = 0;
 
 var questionCountEl = document.querySelector(".questionCount");
 
@@ -124,6 +131,9 @@ var score5 = {
   playerInitials: "MKD"
 }
 
+// ==================== Button Listeners  =====================
+startButton.addEventListener("click", startGame);
+highScoreButton.addEventListener("click", displayHighScore);
 
 // ==================== Function Decleration  =====================
 
@@ -133,27 +143,10 @@ var score5 = {
 // ################# FUNC_NAME #################
 
 
-// ################# FUNC_NAME #################
 
 
 
-
-
-// ################# FUNC_NAME #################
-
-startButton.addEventListener("click", startGame);
-highScoreButton.addEventListener("click", displayHighScore);
-
-function startGame() {
-  questionCard.style.display = "block";
-  highScoreCard.style.display = "none";
-
-  askQuestion(questionArray);
-
-
-}
-
-// ################# FUNC_NAME #################
+// ################# askQuestion #################
 
 // function askQuestion(questionArray, answerArray, questionNumber) {
 function askQuestion(qArray) {
@@ -177,7 +170,7 @@ function askQuestion(qArray) {
 }
 
 
-// ################# FUNC_NAME #################
+// ################# displayHighScore #################
 
 function displayHighScore() {
 
@@ -191,15 +184,61 @@ function displayHighScore() {
 
 }
 
+// ################# countdown #################
+function countdown() {
+  console.log("T1= " + currentTime);
+
+  var timeInterval = setInterval(function () {
+    currentTime--;
+    console.log("Waiting 1 sec! T= " + currentTime);
+    timerEl.textContent = currentTime + " s";
+
+    if (currentTime === 0) {
+      clearInterval(timeInterval);
+      gameOver();
+      // Add End Game Logic | Pass player score
+
+      // window.alert("Count Down Complete!")
+      // displayMessage();
+    }
+
+    //Loop at Feq = 1000ms / 1sec
+  }, 1000);
+
+}
+// ################# FUNC_NAME #################
+function gameOver() {
+  console.log("GAME OVER!");
+}
+
+// ################# FUNC_NAME #################
+function startGame() {
+  questionCard.style.display = "block";
+  highScoreCard.style.display = "none";
+
+  askQuestion(questionArray);
+  countdown();
+
+}
+
+function init() {
+
+  // Hide High Score Screen at first
+  highScoreCard.style.display = "none";
+  questionCard.style.display = "none";
+
+  // Set Starting Time
+  currentTime = gameLength;
+  timerEl.textContent = currentTime + " s";
+  lastResult.textContent = "";
+
+}
 
 
 // =========================== MAIN  ==============================
 
+init();
 
-
-// Hide High Score Screen at first
-highScoreCard.style.display = "none";
-questionCard.style.display = "none";
 
 
 //displayHighScore();
