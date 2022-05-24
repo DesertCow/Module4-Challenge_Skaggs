@@ -7,6 +7,11 @@ var Debug = false;
 
 var startButton = document.querySelector(".start-button");
 var highScoreButton = document.querySelector(".highScore-button");
+var ansButton1 = $('#btn-answer1');
+var ansButton2 = $('#btn-answer2');
+var ansButton3 = $('#btn-answer3');
+var ansButton4 = $('#btn-answer4');
+
 
 var highScoreCard = document.getElementById("highScoreCard");
 var questionCard = document.getElementById("questionCard");
@@ -18,58 +23,78 @@ var score4EL = document.querySelector(".score4");
 var score5EL = document.querySelector(".score5");
 
 var questionEL = document.querySelector(".question");
+var answer1El = document.querySelector(".answer1");
+var answer2El = document.querySelector(".answer2");
+var answer3El = document.querySelector(".answer3");
+var answer4El = document.querySelector(".answer4");
+
 var questionCountEl = document.querySelector(".questionCount");
 
 let questionArray = [
   {
     "question": "Question Place Holder #1",
-    "a1": "Answer Place Holder #1",
-    "a2": "Answer Place Holder #2",
-    "a3": "Answer Place Holder #3",
-    "a4": "Answer Place Holder #4",
+    "a1": "Answer Place Holder #1-1",
+    "a2": "Answer Place Holder #1-2",
+    "a3": "Answer Place Holder #1-3",
+    "a4": "Answer Place Holder #1-4",
     "correct": "a1",
 
   },
   {
     "question": "Question Place Holder #2",
-    "a1": "Answer Place Holder #1",
-    "a2": "Answer Place Holder #2",
-    "a3": "Answer Place Holder #3",
-    "a4": "Answer Place Holder #4",
+    "a1": "Answer Place Holder #2-1",
+    "a2": "Answer Place Holder #2-2",
+    "a3": "Answer Place Holder #2-3",
+    "a4": "Answer Place Holder #2-4",
     "correct": "a2",
 
   },
   {
     "question": "Question Place Holder #3",
-    "a1": "Answer Place Holder #1",
-    "a2": "Answer Place Holder #2",
-    "a3": "Answer Place Holder #3",
-    "a4": "Answer Place Holder #4",
+    "a1": "Answer Place Holder #3-1",
+    "a2": "Answer Place Holder #3-2",
+    "a3": "Answer Place Holder #3-3",
+    "a4": "Answer Place Holder #3-4",
     "correct": "a3",
 
   },
   {
     "question": "Question Place Holder #4",
-    "a1": "Answer Place Holder #1",
-    "a2": "Answer Place Holder #2",
-    "a3": "Answer Place Holder #3",
-    "a4": "Answer Place Holder #4",
+    "a1": "Answer Place Holder #4-1",
+    "a2": "Answer Place Holder #4-2",
+    "a3": "Answer Place Holder #4-3",
+    "a4": "Answer Place Holder #4-4",
     "correct": "a4",
 
   },
   {
     "question": "Question Place Holder #5",
-    "a1": "Answer Place Holder #1",
-    "a2": "Answer Place Holder #2",
-    "a3": "Answer Place Holder #3",
-    "a4": "Answer Place Holder #4",
+    "a1": "Answer Place Holder #5-1",
+    "a2": "Answer Place Holder #5-2",
+    "a3": "Answer Place Holder #5-3",
+    "a4": "Answer Place Holder #5-4",
     "correct": "a2",
 
   },
 ]
 
+// ################# Define Click Listeners #################
 
+ansButton1.on('click', function () {
+  console.log("Answer 1 Selected!");
+});
 
+ansButton2.on('click', function () {
+  console.log("Answer 2 Selected!");
+});
+
+ansButton3.on('click', function () {
+  console.log("Answer 3 Selected!");
+});
+
+ansButton4.on('click', function () {
+  console.log("Answer 4 Selected!");
+});
 
 // ################# Create Array For Top 5 Players #################
 var score1 = {
@@ -136,6 +161,10 @@ function askQuestion(qArray) {
   for (var i = 0; i < qArray.length; i++) {
     var iPlus = i + 1;
     questionEL.textContent = qArray[i].question;
+    answer1El.textContent = qArray[i].a1;
+    answer2El.textContent = qArray[i].a2;
+    answer3El.textContent = qArray[i].a3;
+    answer4El.textContent = qArray[i].a4;
 
     questionCountEl.textContent = "Question #" + iPlus;
     console.log(questionEL.textContent);
