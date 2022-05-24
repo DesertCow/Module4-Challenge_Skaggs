@@ -17,8 +17,61 @@ var score3EL = document.querySelector(".score3");
 var score4EL = document.querySelector(".score4");
 var score5EL = document.querySelector(".score5");
 
+var questionEL = document.querySelector(".question");
+var questionCountEl = document.querySelector(".questionCount");
+
+let questionArray = [
+  {
+    "question": "Question Place Holder #1",
+    "a1": "Answer Place Holder #1",
+    "a2": "Answer Place Holder #2",
+    "a3": "Answer Place Holder #3",
+    "a4": "Answer Place Holder #4",
+    "correct": "a1",
+
+  },
+  {
+    "question": "Question Place Holder #2",
+    "a1": "Answer Place Holder #1",
+    "a2": "Answer Place Holder #2",
+    "a3": "Answer Place Holder #3",
+    "a4": "Answer Place Holder #4",
+    "correct": "a2",
+
+  },
+  {
+    "question": "Question Place Holder #3",
+    "a1": "Answer Place Holder #1",
+    "a2": "Answer Place Holder #2",
+    "a3": "Answer Place Holder #3",
+    "a4": "Answer Place Holder #4",
+    "correct": "a3",
+
+  },
+  {
+    "question": "Question Place Holder #4",
+    "a1": "Answer Place Holder #1",
+    "a2": "Answer Place Holder #2",
+    "a3": "Answer Place Holder #3",
+    "a4": "Answer Place Holder #4",
+    "correct": "a4",
+
+  },
+  {
+    "question": "Question Place Holder #5",
+    "a1": "Answer Place Holder #1",
+    "a2": "Answer Place Holder #2",
+    "a3": "Answer Place Holder #3",
+    "a4": "Answer Place Holder #4",
+    "correct": "a2",
+
+  },
+]
 
 
+
+
+// ################# Create Array For Top 5 Players #################
 var score1 = {
   element: document.querySelector(".score1"),
   data: "5",
@@ -58,7 +111,7 @@ var score5 = {
 // ################# FUNC_NAME #################
 
 
-// ################# FUNC_NAME #################
+
 
 
 // ################# FUNC_NAME #################
@@ -70,6 +123,26 @@ function startGame() {
   questionCard.style.display = "block";
   highScoreCard.style.display = "none";
 
+  askQuestion(questionArray);
+
+
+}
+
+// ################# FUNC_NAME #################
+
+// function askQuestion(questionArray, answerArray, questionNumber) {
+function askQuestion(qArray) {
+
+  for (var i = 0; i < qArray.length; i++) {
+    var iPlus = i + 1;
+    questionEL.textContent = qArray[i].question;
+
+    questionCountEl.textContent = "Question #" + iPlus;
+    console.log(questionEL.textContent);
+    // questionEL.textContent = "How many items are in a dozen?";
+  }
+
+  // questionEL.textContent = "How many items are in a dozen?";
 
 
 }

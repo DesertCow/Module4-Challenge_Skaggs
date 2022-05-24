@@ -58,6 +58,16 @@ main div h1 {
   font-size: 70px;
 }
 
+main div p {
+  margin: 20px;
+}
+
+main div q1 {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+}
+
 
 
 .card {
@@ -81,7 +91,7 @@ main div h1 {
 
 .highScoreTitle {
     text-align: center;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 /* ============ Body ============ */

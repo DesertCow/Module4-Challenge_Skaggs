@@ -93,10 +93,10 @@ Version 0.1</h5>
 ---
 
 <div align="center">
-🚀 <a href="https://github.com/DesertCow/Module3-Challenge_Skaggs">github.com/DesertCow/Module4-Challenge_Skaggs</a> 🚀
+🚀 <a href="https://github.com/DesertCow/Module4-Challenge_Skaggs">github.com/DesertCow/Module4-Challenge_Skaggs</a> 🚀
 <br>
 <br>
-🛰️ <a href="https://desertcow.github.io/Module3-Challenge_Skaggs">desertcow.github.io/Module4-Challenge_Skaggs/</a> 🛰️
+🛰️ <a href="https://desertcow.github.io/Module4-Challenge_Skaggs">desertcow.github.io/Module4-Challenge_Skaggs/</a> 🛰️
 </div>
 
 ---
