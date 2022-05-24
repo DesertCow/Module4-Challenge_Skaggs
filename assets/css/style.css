@@ -13,6 +13,7 @@
 
 /* ============ Header ============ */
 header {
+  display: flexbox;
   padding: 40px;
   text-align: center;
   background-color: var(--color1);
@@ -31,7 +32,10 @@ header h1 {
 /* ============ Main ============ */
 
 main {
+  display: flex;
   background-color: var(--color1);
+  min-height: 500px;
+  justify-content: center;
 }
 
 main h2 {
@@ -62,15 +66,22 @@ main div h1 {
   border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
-  margin: 20px;
   padding: 20px;
   width: 90%;
-  height: auto;
-  margin: 20px;
+  min-height: 450px;
+  height: 400px;
+  margin: 5px;
+  border:30px solid var(--color1);
 }
 
 .highScore {
   font-size: 40px;
+    text-align: left;
+}
+
+.highScoreTitle {
+    text-align: center;
+    font-size: 60px;
 }
 
 /* ============ Body ============ */
