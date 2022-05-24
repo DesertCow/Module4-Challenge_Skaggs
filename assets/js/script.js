@@ -33,53 +33,59 @@ var answer4El = document.querySelector(".answer4");
 
 var timerEl = document.querySelector(".displayTimer");
 var lastResult = document.querySelector(".lastResult");
+
 var currentTime = 0;
+var userAnswerSelection = "";
+var userAnswerProvided = false;
+var currentCorrectAnswer = "VOID";
+var currentUserScore = 0;
+var currentQuestionCount = 0;
 
 var questionCountEl = document.querySelector(".questionCount");
 
 let questionArray = [
   {
-    "question": "Question Place Holder #1",
-    "a1": "Answer Place Holder #1-1",
-    "a2": "Answer Place Holder #1-2",
-    "a3": "Answer Place Holder #1-3",
-    "a4": "Answer Place Holder #1-4",
-    "correct": "a1",
-
-  },
-  {
-    "question": "Question Place Holder #2",
-    "a1": "Answer Place Holder #2-1",
-    "a2": "Answer Place Holder #2-2",
-    "a3": "Answer Place Holder #2-3",
-    "a4": "Answer Place Holder #2-4",
+    "question": "What is the most expensive painting to be sold at auction?",
+    "a1": "The Starry Night",
+    "a2": "Salvator Mundi",
+    "a3": "Mona Lisa",
+    "a4": "Love is in the Bin",
     "correct": "a2",
 
   },
   {
-    "question": "Question Place Holder #3",
-    "a1": "Answer Place Holder #3-1",
-    "a2": "Answer Place Holder #3-2",
-    "a3": "Answer Place Holder #3-3",
-    "a4": "Answer Place Holder #3-4",
-    "correct": "a3",
-
-  },
-  {
-    "question": "Question Place Holder #4",
-    "a1": "Answer Place Holder #4-1",
-    "a2": "Answer Place Holder #4-2",
-    "a3": "Answer Place Holder #4-3",
-    "a4": "Answer Place Holder #4-4",
+    "question": "What is the name of the world's deepest Lake?",
+    "a1": "Lake Texoma (TX/OK)",
+    "a2": "Crater Lake (OR)",
+    "a3": "Lake Tahoe (CA)",
+    "a4": "Lake Baikal (RUS)",
     "correct": "a4",
 
   },
   {
-    "question": "Question Place Holder #5",
-    "a1": "Answer Place Holder #5-1",
-    "a2": "Answer Place Holder #5-2",
-    "a3": "Answer Place Holder #5-3",
-    "a4": "Answer Place Holder #5-4",
+    "question": "What is the only U.S. state with a Spanish motto?",
+    "a1": "Texas",
+    "a2": "Californa",
+    "a3": "Montana",
+    "a4": "Arizona",
+    "correct": "a3",
+
+  },
+  {
+    "question": "How many of the speeches in Shakespeare's plays are delivered by women?",
+    "a1": "17%",
+    "a2": "44%",
+    "a3": "73%",
+    "a4": "4%",
+    "correct": "a1",
+
+  },
+  {
+    "question": "What Planet Does Not Have a Moon?",
+    "a1": "Earth",
+    "a2": "Mercury",
+    "a3": "Mars",
+    "a4": "Jupiter",
     "correct": "a2",
 
   },
@@ -89,19 +95,51 @@ let questionArray = [
 
 ansButton1.on('click', function () {
   console.log("Answer 1 Selected!");
+  userAnswerSelection = "a1";
+  userAnswerProvided = true;
+  userAnswered(userAnswerSelection, currentCorrectAnswer);
+  console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
 });
 
 ansButton2.on('click', function () {
   console.log("Answer 2 Selected!");
+  userAnswerSelection = "a2";
+  userAnswerProvided = true;
+  userAnswered(userAnswerSelection, currentCorrectAnswer);
+  console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
 });
 
 ansButton3.on('click', function () {
   console.log("Answer 3 Selected!");
+  userAnswerSelection = "a3";
+  userAnswerProvided = true;
+  userAnswered(userAnswerSelection, currentCorrectAnswer);
+  console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
 });
 
 ansButton4.on('click', function () {
   console.log("Answer 4 Selected!");
+  userAnswerSelection = "a4";
+  userAnswerProvided = true;
+  userAnswered(userAnswerSelection, currentCorrectAnswer);
+  console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
 });
+
+function userAnswered(user, correct) {
+  if (user === correct) {
+    // User Selected Correct Answer -> Next Question
+    currentUserScore++;
+    console.log("User Selected Correct Answer || " + user + "==" + correct + "Score = " + currentUserScore);
+    nextQuestion();
+  }
+  else {
+    // User Selected INCORRECT Answer [Dock Time] -> Next Question
+    console.log("User Selected Incorrect Answer || " + user + "!=" + correct);
+    currentTime = currentTime - 5;
+    nextQuestion();
+  }
+}
+
 
 // ################# Create Array For Top 5 Players #################
 var score1 = {
@@ -149,25 +187,24 @@ highScoreButton.addEventListener("click", displayHighScore);
 // ################# askQuestion #################
 
 // function askQuestion(questionArray, answerArray, questionNumber) {
-function askQuestion(qArray) {
+// function askQuestion(qArray) {
 
-  for (var i = 0; i < qArray.length; i++) {
-    var iPlus = i + 1;
-    questionEL.textContent = qArray[i].question;
-    answer1El.textContent = qArray[i].a1;
-    answer2El.textContent = qArray[i].a2;
-    answer3El.textContent = qArray[i].a3;
-    answer4El.textContent = qArray[i].a4;
+//   for (var i = 0; i < qArray.length; i++) {
+//     var iPlus = i + 1;
+//     questionEL.textContent = qArray[i].question;
+//     answer1El.textContent = qArray[i].a1;
+//     answer2El.textContent = qArray[i].a2;
+//     answer3El.textContent = qArray[i].a3;
+//     answer4El.textContent = qArray[i].a4;
 
-    questionCountEl.textContent = "Question #" + iPlus;
-    console.log(questionEL.textContent);
-    // questionEL.textContent = "How many items are in a dozen?";
-  }
+//     questionCountEl.textContent = "Question #" + iPlus;
+//     console.log(questionEL.textContent);
+//     // questionEL.textContent = "How many items are in a dozen?";
+//   }
 
-  // questionEL.textContent = "How many items are in a dozen?";
+//   // questionEL.textContent = "How many items are in a dozen?";
+// }
 
-
-}
 
 
 // ################# displayHighScore #################
@@ -193,8 +230,9 @@ function countdown() {
     console.log("Waiting 1 sec! T= " + currentTime);
     timerEl.textContent = currentTime + " s";
 
-    if (currentTime === 0) {
+    if (currentTime <= 0) {
       clearInterval(timeInterval);
+      userAnswerProvided = true;
       gameOver();
       // Add End Game Logic | Pass player score
 
@@ -209,6 +247,50 @@ function countdown() {
 // ################# FUNC_NAME #################
 function gameOver() {
   console.log("GAME OVER!");
+
+  // Hide Question from User
+  questionCard.style.display = "none";
+  //finalScore();
+}
+
+function finalScore() {
+  console.log("FINAL SCORE LOGIC!");
+  finalScoreCard.style.display = "block";
+}
+
+// ################# askQuestion #################
+function askQuestion(askObj) {
+
+  //   console.log("Q :" + askObj.question);
+  //   console.log("a1: " + askObj.a1);
+
+  questionEL.textContent = askObj.question;
+  answer1El.textContent = askObj.a1;
+  answer2El.textContent = askObj.a2;
+  answer3El.textContent = askObj.a3;
+  answer4El.textContent = askObj.a4;
+
+  currentCorrectAnswer = askObj.correct;
+  console.log("Answer = " + currentCorrectAnswer);
+
+  //   // Wait For user Response
+  //   // var responseWait = setInterval(function () {
+
+  //   //   if (userAnswerProvided === false) {
+  //   //     //   // Contioisuly Check if user has selected an answer
+  //   //     console.log("Current Time = " + currentTime);
+  //   //     console.log("Waiting for user to select an answer...");
+  //   //   }
+
+  //   // }, 500);
+
+
+  //   console.log("User HAS Selected! = " + userAnswerSelection);
+  //   //}
+  //   //gameOver();
+  //   // if ( === askObj.correct)
+
+  //   //   return;
 }
 
 // ################# FUNC_NAME #################
@@ -216,8 +298,43 @@ function startGame() {
   questionCard.style.display = "block";
   highScoreCard.style.display = "none";
 
-  askQuestion(questionArray);
+  let currentQuestionObj = {
+
+    "question": questionArray[currentQuestionCount].question,
+    "a1": questionArray[currentQuestionCount].a1,
+    "a2": questionArray[currentQuestionCount].a2,
+    "a3": questionArray[currentQuestionCount].a3,
+    "a4": questionArray[currentQuestionCount].a4,
+    "correct": questionArray[currentQuestionCount].correct,
+
+    // "question": "What is the most expensive painting to be sold at auction?",
+    // "a1": "The Starry Night",
+    // "a2": "Salvator Mundi",
+    // "a3": "Mona Lisa",
+    // "a4": "Love is in the Bin",
+    // "correct": "a2",
+  }
+
   countdown();
+  askQuestion(currentQuestionObj);
+
+}
+
+function nextQuestion() {
+
+  currentQuestionCount++;
+
+  let currentQuestionObj = {
+
+    "question": questionArray[currentQuestionCount].question,
+    "a1": questionArray[currentQuestionCount].a1,
+    "a2": questionArray[currentQuestionCount].a2,
+    "a3": questionArray[currentQuestionCount].a3,
+    "a4": questionArray[currentQuestionCount].a4,
+    "correct": questionArray[currentQuestionCount].correct,
+  }
+
+  askQuestion(currentQuestionObj);
 
 }
 
@@ -238,11 +355,6 @@ function init() {
 // =========================== MAIN  ==============================
 
 init();
-
-
-
-//displayHighScore();
-// highScoreCard.style.display = "block";
 
 
 // =========================== END MAIN  ==========================
