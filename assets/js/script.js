@@ -129,12 +129,14 @@ function userAnswered(user, correct) {
   if (user === correct) {
     // User Selected Correct Answer -> Next Question
     currentUserScore++;
+    lastResult.textContent = "Correct";
     console.log("User Selected Correct Answer || " + user + "==" + correct + "Score = " + currentUserScore);
     nextQuestion();
   }
   else {
     // User Selected INCORRECT Answer [Dock Time] -> Next Question
     console.log("User Selected Incorrect Answer || " + user + "!=" + correct);
+    lastResult.textContent = "Incorrect";
     currentTime = currentTime - 5;
     nextQuestion();
   }
