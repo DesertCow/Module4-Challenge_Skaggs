@@ -38,18 +38,30 @@
               <li><button class="btn btn-secondary answer3 ansbtn" id="btn-answer3"></button></li>
               <li><button class="btn btn-secondary answer4 ansbtn" id="btn-answer4"></button></li>    
             </div>
-            <div class="col timerCard" id="timerCard">
-              <timecard>
-                <timerbox>
-                  <h2 class="displayTimer">45</h2>
-                </timerbox>
-                <lastResultbox>
-                    <h2 class="lastResult">Incorrect!</h2>
-                </lastResultbox>
-              </timecard>
-
+            <div class="col">
+              <div class="col timerCard" id="timerCard">
+                <timecard>
+                  <timerbox>
+                    <h2 class="displayTimer">45</h2>
+                  </timerbox>
+                  <lastResultbox>
+                      <h2 class="lastResult">Incorrect!</h2>
+                  </lastResultbox>
+                </timecard>
+              </div>
+              <div>
+                <scorebox>
+                  <h2 class="displayScore">0</h2>
+                </scorebox>
+              </div>
             </div>
           </ul>
+        </div>
+        <div id="finalScoreCard" id="finalScoreCard">
+          <h2>Congradualtions!</h2>
+          <h2 class="finaldisplayScore"></h2>
+          <textarea id="userInitals" placeholder="Please Enter Initals"></textarea>
+          <button class="btn btn-secondary" id="btn-initalSubmit"></button>
         </div>
     </main>
 

@@ -10,7 +10,7 @@
 By Clayton Skaggs<br>
 (WW21.2) / May 24th 2022
 
-Version 0.1</h5>
+Version 0.2</h5>
 </div>
 
 ---
@@ -37,15 +37,15 @@ Version 0.1</h5>
 ---
 <p align="center"> <b>GIVEN</b> I am taking a code quiz <br><br></p>
 <p align="left"><b>WHEN</b> I click the start button<br>
-❌ THEN a timer starts and I am presented with a question<br>
+✔️ THEN a timer starts and I am presented with a question<br>
 <b>WHEN</b> I answer a question<br>
-❌ THEN I am presented with another question<br>
+✔️ THEN I am presented with another question<br>
 <b>WHEN</b> I answer a question incorrectly<br>
-❌ THEN time is subtracted from the clock<br>
+✔️ THEN time is subtracted from the clock<br>
 <b>WHEN</b> all questions are answered or the timer reaches 0<br>
-❌ THEN the game is over<br>
+✔️ THEN the game is over<br>
 <b>WHEN</b> the game is over<br>
-❌ THEN I can save my initials and score<br>
+✔️ THEN I can save my initials and score<br>
 <br>
 <br>
 <br>
@@ -55,11 +55,11 @@ Version 0.1</h5>
 ---
 
 <ul>
-  <li>⚡ FEATURE#1 </li>
-  <li>💥 FEATURE#2 </li>
-  <li>⚡ FEATURE#3 </li>
-  <li>💥 FEATURE#4 </li>
-  <li>⚡ FEATURE#5 </li>
+  <li>⚡ Asks you questions to test your JavaScript knowledge.</li>
+  <li>💥 Tracks your score to let you know how well your are doing.</li>
+  <li>⚡ At the conclusion of the game user can submit their score to the leaderboard.</li>
+  <li>💥 Leaderboard can be viewed before or after the game.</li>
+  <li>⚡ Leaderboard data can be reset.</li>
 </ul>
 
 <br>

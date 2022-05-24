@@ -14,10 +14,12 @@ var ansButton1 = $('#btn-answer1');
 var ansButton2 = $('#btn-answer2');
 var ansButton3 = $('#btn-answer3');
 var ansButton4 = $('#btn-answer4');
+var userSubmitScore = $('#btn-initalSubmit');
 
 
 var highScoreCard = document.getElementById("highScoreCard");
 var questionCard = document.getElementById("questionCard");
+var finalScoreCard = document.getElementById("finalScoreCard");
 
 var score1EL = document.querySelector(".score1");
 var score2EL = document.querySelector(".score2");
@@ -31,8 +33,12 @@ var answer2El = document.querySelector(".answer2");
 var answer3El = document.querySelector(".answer3");
 var answer4El = document.querySelector(".answer4");
 
+// var userNameEl = document.querySelector(".userInitals");
+
 var timerEl = document.querySelector(".displayTimer");
 var lastResult = document.querySelector(".lastResult");
+var scoreEl = document.querySelector(".displayScore");
+var finalDisplayEl = document.querySelector(".finaldisplayScore");
 
 var currentTime = 0;
 var userAnswerSelection = "";
@@ -40,6 +46,8 @@ var userAnswerProvided = false;
 var currentCorrectAnswer = "VOID";
 var currentUserScore = 0;
 var currentQuestionCount = 0;
+var userName = "VOID";
+var finalScore = 0;
 
 var questionCountEl = document.querySelector(".questionCount");
 
@@ -125,11 +133,28 @@ ansButton4.on('click', function () {
   console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
 });
 
+userSubmitScore.on('click', function () {
+  console.log("New High Score Submitted");
+  var userName = document.getElementById("userInitals").value;
+  // userName = userNameEl.textContent;
+  console.log("User Name= " + userName)
+  updateHighScore(finalScore, userName);
+});
+
+// #################  ################
+
+function updateHighScore(submitScore, user) {
+  console.log("Score = " + submitScore + " || Name = " + user);
+  displayHighScore();
+
+}
+
 function userAnswered(user, correct) {
   if (user === correct) {
     // User Selected Correct Answer -> Next Question
     currentUserScore++;
     lastResult.textContent = "Correct";
+    scoreEl.textContent = currentUserScore;
     console.log("User Selected Correct Answer || " + user + "==" + correct + "Score = " + currentUserScore);
     nextQuestion();
   }
@@ -137,6 +162,7 @@ function userAnswered(user, correct) {
     // User Selected INCORRECT Answer [Dock Time] -> Next Question
     console.log("User Selected Incorrect Answer || " + user + "!=" + correct);
     lastResult.textContent = "Incorrect";
+    scoreEl.textContent = currentUserScore;
     currentTime = currentTime - 5;
     nextQuestion();
   }
@@ -214,7 +240,9 @@ highScoreButton.addEventListener("click", displayHighScore);
 function displayHighScore() {
 
   questionCard.style.display = "none";
+  finalScoreCard.style.display = "none";
   highScoreCard.style.display = "block";
+
   score1EL.textContent = "#1: " + score1.data + " - " + score1.playerInitials;
   score2EL.textContent = "#2: " + score2.data + " - " + score2.playerInitials;
   score3EL.textContent = "#3: " + score3.data + " - " + score3.playerInitials;
@@ -252,12 +280,15 @@ function gameOver() {
 
   // Hide Question from User
   questionCard.style.display = "none";
-  //finalScore();
+  finalScore = currentUserScore;
+  finalScoreScreen(finalScore);
 }
 
-function finalScore() {
+function finalScoreScreen(score) {
   console.log("FINAL SCORE LOGIC!");
   finalScoreCard.style.display = "block";
+
+  finalDisplayEl.textContent = "Your Final Score is " + score;
 }
 
 // ################# askQuestion #################
@@ -326,17 +357,26 @@ function nextQuestion() {
 
   currentQuestionCount++;
 
-  let currentQuestionObj = {
+  if (currentQuestionCount <= questionArray.length) {
 
-    "question": questionArray[currentQuestionCount].question,
-    "a1": questionArray[currentQuestionCount].a1,
-    "a2": questionArray[currentQuestionCount].a2,
-    "a3": questionArray[currentQuestionCount].a3,
-    "a4": questionArray[currentQuestionCount].a4,
-    "correct": questionArray[currentQuestionCount].correct,
+    let currentQuestionObj = {
+
+      "question": questionArray[currentQuestionCount].question,
+      "a1": questionArray[currentQuestionCount].a1,
+      "a2": questionArray[currentQuestionCount].a2,
+      "a3": questionArray[currentQuestionCount].a3,
+      "a4": questionArray[currentQuestionCount].a4,
+      "correct": questionArray[currentQuestionCount].correct,
+    }
+
+    askQuestion(currentQuestionObj);
+
+  }
+  else {
+    // Reached End of Questions/ Game Over
+    gameOver();
   }
 
-  askQuestion(currentQuestionObj);
 
 }
 
@@ -345,6 +385,7 @@ function init() {
   // Hide High Score Screen at first
   highScoreCard.style.display = "none";
   questionCard.style.display = "none";
+  finalScoreCard.style.display = "none";
 
   // Set Starting Time
   currentTime = gameLength;
