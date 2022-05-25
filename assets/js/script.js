@@ -7,7 +7,6 @@ var Debug = false;
 
 var hasTimerStarted = false;
 
-
 var startButton = document.querySelector(".start-button");
 var highScoreButton = document.querySelector(".highScore-button");
 var ansButton1 = $('#btn-answer1');
@@ -130,50 +129,54 @@ highScoreButton.addEventListener('mouseout', function handleMouseOut() {
 // ################# Define Click Listeners #################
 
 ansButton1.on('click', function () {
-  console.log("Answer 1 Selected!");
+  if (Debug) { console.log("Answer 1 Selected!"); }
   userAnswerSelection = "a1";
   userAnswerProvided = true;
   userAnswered(userAnswerSelection, currentCorrectAnswer);
-  console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
+  if (Debug) { console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided); }
 });
 
 ansButton2.on('click', function () {
-  console.log("Answer 2 Selected!");
+  if (Debug) { console.log("Answer 2 Selected!"); }
   userAnswerSelection = "a2";
   userAnswerProvided = true;
   userAnswered(userAnswerSelection, currentCorrectAnswer);
-  console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
+  if (Debug) { console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided); }
 });
 
 ansButton3.on('click', function () {
-  console.log("Answer 3 Selected!");
+  if (Debug) { console.log("Answer 3 Selected!"); }
   userAnswerSelection = "a3";
   userAnswerProvided = true;
   userAnswered(userAnswerSelection, currentCorrectAnswer);
-  console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
+  if (Debug) { console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided); }
 });
 
 ansButton4.on('click', function () {
-  console.log("Answer 4 Selected!");
+  if (Debug) { console.log("Answer 4 Selected!"); }
   userAnswerSelection = "a4";
   userAnswerProvided = true;
   userAnswered(userAnswerSelection, currentCorrectAnswer);
-  console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided);
+  if (Debug) { console.log("User = " + userAnswerSelection + " || SelectionFlag = " + userAnswerProvided); }
 });
 
 userSubmitScore.on('click', function () {
-  console.log("New High Score Submitted");
+  if (Debug) { console.log("New High Score Submitted"); }
+
+  // Pull user input from textBox "userInitals"
   var userName = document.getElementById("userInitals").value;
+
+
   finalScoreCard.style.display = "none";
   // userName = userNameEl.textContent;
-  console.log("User Name= " + userName)
+  if (Debug) { console.log("User Name= " + userName) }
   updateHighScore(finalScore, userName);
 });
 
 // ################# updateHighScore ################
 
 function updateHighScore(submitScore, user) {
-  console.log("Score = " + submitScore + " || Name = " + user);
+  if (Debug) { console.log("Score = " + submitScore + " || Name = " + user); }
   displayHighScore();
 
 }
@@ -186,12 +189,12 @@ function userAnswered(user, correct) {
     lastResult.textContent = "Correct";
     lastResult.style.backgroundColor = '#B2F462';
     scoreEl.textContent = "Score: " + currentUserScore;
-    console.log("User Selected Correct Answer || " + user + "==" + correct + "Score = " + currentUserScore);
+    if (Debug) { console.log("User Selected Correct Answer || " + user + "==" + correct + "Score = " + currentUserScore); }
     nextQuestion();
   }
   else {
     // User Selected INCORRECT Answer [Dock Time] -> Next Question
-    console.log("User Selected Incorrect Answer || " + user + "!=" + correct);
+    if (Debug) { console.log("User Selected Incorrect Answer || " + user + "!=" + correct); }
     lastResult.textContent = "Incorrect (5 second penalty)";
     lastResult.style.backgroundColor = '#F46269';
     scoreEl.textContent = "Score: " + currentUserScore;
@@ -248,14 +251,14 @@ function displayHighScore() {
 
 // ################# countdown #################
 function countdown() {
-  console.log("T1= " + currentTime);
+  if (Debug) { console.log("T1= " + currentTime); }
 
   if (!(hasTimerStarted)) {
 
     hasTimerStarted = true;
     var timeInterval = setInterval(function () {
       currentTime--;
-      console.log("Waiting 1 sec! T= " + currentTime);
+      if (Debug) { console.log("Waiting 1 sec! T= " + currentTime); }
       timerEl.textContent = "Time Left: " + currentTime + " s";
 
       if (currentTime <= 0) {
@@ -275,7 +278,7 @@ function countdown() {
 
 // ################# gameOver #################
 function gameOver() {
-  console.log("GAME OVER!");
+  if (Debug) { console.log("GAME OVER!"); }
   currentTime = 0;
   // Hide Question from User
   questionCard.style.display = "none";
@@ -285,7 +288,7 @@ function gameOver() {
 
 // ################# finalScoreScreen #################
 function finalScoreScreen(score) {
-  console.log("FINAL SCORE LOGIC!");
+  if (Debug) { console.log("FINAL SCORE LOGIC!"); }
   finalScoreCard.style.display = "block";
   highScoreCard.style.display = "none";
   questionCard.style.display = "none";
@@ -302,7 +305,7 @@ function askQuestion(askObj) {
   answer4El.textContent = "D:          " + askObj.a4;
 
   currentCorrectAnswer = askObj.correct;
-  console.log("Answer = " + currentCorrectAnswer);
+  if (Debug) { console.log("Answer = " + currentCorrectAnswer); }
 }
 
 // ################# startGame #################
@@ -312,8 +315,10 @@ function startGame() {
   finalScoreCard.style.display = "none";
   gameReset();
 
+  // Update Question number on Screen
   questionCountEl.textContent = "Question #" + (currentQuestionCount + 1);
 
+  // Pull next question data and load into Object to be passed to askQuestion()
   let currentQuestionObj = {
 
     "question": questionArray[currentQuestionCount].question,
@@ -335,7 +340,7 @@ function nextQuestion() {
   currentQuestionCount++;
   questionCountEl.textContent = "Question #" + (currentQuestionCount + 1);
 
-  console.log(currentQuestionCount + " <= " + questionArray.length)
+  if (Debug) { console.log(currentQuestionCount + " <= " + questionArray.length) }
 
   if (currentQuestionCount < questionArray.length) {
 
@@ -352,7 +357,7 @@ function nextQuestion() {
     askQuestion(currentQuestionObj);
   }
   else {
-    // Reached End of Questions/ Game Over
+    // Reached End of Questions/Game Over
     gameOver();
   }
 }
