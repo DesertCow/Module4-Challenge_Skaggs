@@ -7,16 +7,16 @@
   --color4: #17C3B2;
   --color5: #A1CBCD;
 
-  --BGcolor: #F4A261;
+  --BGcolor: #F4A462;
 
   --btnGrade1: #AED9E0;
   --btnGrade2: #275E67;
 
-  --cardGrade1: #264653;
-  --cardGrade2: #264653;
+  --cardGrade1: #F5C062;
+  --cardGrade2: #264653d1;
 
-  --questionBtn: #2A9D8F;
-  --questionBG: #A462F4;
+  --questionBtn: #6281F4;
+  --questionBG: #a462f4a7;
   --border: #62F4A4;
 
   --cardBG1: #00342d93;
@@ -33,9 +33,11 @@
 
 /* ============ Header ============ */
 header {
-  display: flexbox;
+  display: flex;
   padding: 40px;
-  text-align: center;
+  /* text-align: center; */
+  justify-content: center;
+  align-items: center;
   background-color: var(--BGcolor);
   color: #fff;
   /* border-bottom:30px solid var(--color1); */
@@ -121,7 +123,7 @@ main q1 {
 /* ============ Cards ============ */
 
 .card {
-  background: radial-gradient(circle, var(--color3) 0%, var(--color2) 100%);
+  background: var(--questionBG);
   border: 5px solid #eceff1;
   border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
@@ -148,21 +150,25 @@ main q1 {
 }
 
 .finalScoreCard {
-  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
-  border: 5px solid #eceff1;
+  background: var(--questionBG);
   border-radius: 8px;
+  border:30px solid var(--border);
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
   padding: 20px;
   width: 90%;
   min-height: 450px;
   height: auto;
+  margin-top: 20px;
   margin: 5px;
-  border:30px solid var(--border);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
- .timerCard {
-  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
+.titleBox {
+  background: var(--cardGrade1);
   border-radius: 8px;
   border:5px solid var(--btnBorder);
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
@@ -170,6 +176,23 @@ main q1 {
   padding: 20px;
   width: 40%;
   height: auto;
+  margin-top: 50px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ .timerCard {
+  background: var(--cardGrade1);
+  border-radius: 8px;
+  border:5px solid var(--btnBorder);
+  box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
+    rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
+  padding: 20px;
+  width: 40%;
+  height: auto;
+  margin-top: 50px;
   margin: 5px;
   display: flex;
   align-items: center;
@@ -177,7 +200,7 @@ main q1 {
 }
 
  .timerBox {
-  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
+  background: var(--questionBtn);
   border-radius: 8px;
   border:5px solid var(--btnBorder);
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
@@ -193,7 +216,7 @@ main q1 {
 }
 
  .lastResult {
-  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
+  background: var(--questionBtn);
   border-radius: 8px;
   border:5px solid var(--btnBorder);
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
@@ -206,10 +229,11 @@ main q1 {
   justify-content: center;
   align-items: center;
   font-size: 11px;
+  text-align: center;
 }
 
  .displayScore {
-  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
+  background:  var(--cardGrade1);
   border-radius: 8px;
   border:5px solid var(--btnBorder);
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
@@ -231,6 +255,8 @@ div .finalScoreCard {
   padding-top: 10%;
   margin-bottom: 50px;
   justify-content: center;
+  align-items: center;
+
 }
 
 div textarea {
@@ -249,7 +275,7 @@ div .finalScoreCard h2 {
 }
 
 .question {
-  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
+  background: var(--cardGrade1);
   border: 5px solid var(--btnBorder);
   border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,

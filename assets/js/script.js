@@ -53,48 +53,48 @@ var questionCountEl = document.querySelector(".questionCount");
 
 let questionArray = [
   {
-    "question": "What is the most expensive painting to be sold at auction?",
-    "a1": "The Starry Night",
-    "a2": "Salvator Mundi",
-    "a3": "Mona Lisa",
-    "a4": "Love is in the Bin",
-    "correct": "a2",
-
-  },
-  {
-    "question": "What is the name of the world's deepest Lake?",
-    "a1": "Lake Texoma (TX/OK)",
-    "a2": "Crater Lake (OR)",
-    "a3": "Lake Tahoe (CA)",
-    "a4": "Lake Baikal (RUS)",
-    "correct": "a4",
-
-  },
-  {
-    "question": "What is the only U.S. state with a Spanish motto?",
-    "a1": "Texas",
-    "a2": "Californa",
-    "a3": "Montana",
-    "a4": "Arizona",
-    "correct": "a3",
-
-  },
-  {
-    "question": "How many of the speeches in Shakespeare's plays are delivered by women?",
-    "a1": "17%",
-    "a2": "44%",
-    "a3": "73%",
-    "a4": "4%",
+    "question": "Inside which HTML element do we put the JavaScript?",
+    "a1": "<script>",
+    "a2": "<js>",
+    "a3": "<javascript>",
+    "a4": "<scripting>",
     "correct": "a1",
 
   },
   {
-    "question": "What Planet Does Not Have a Moon?",
-    "a1": "Earth",
-    "a2": "Mercury",
-    "a3": "Mars",
-    "a4": "Jupiter",
+    "question": "Where is the correct place to insert a JavaScript?",
+    "a1": "The <body> Section",
+    "a2": "The <head> Section",
+    "a3": "The <head> and <body> Section",
+    "a4": "The <footer> Section",
+    "correct": "a4",
+
+  },
+  {
+    "question": "JavaScript was originally developed by which company?",
+    "a1": "Texas Instruments",
+    "a2": "Intel",
+    "a3": "Netscape",
+    "a4": "Google",
+    "correct": "a3",
+
+  },
+  {
+    "question": "How do you find the minimum of x and y using JavaScript?",
+    "a1": "min(x,y);",
+    "a2": "Math.min(x,y)",
+    "a3": "Math.min(xy)",
+    "a4": "min(xy);",
     "correct": "a2",
+
+  },
+  {
+    "question": "Which JavaScript label catches all the values, except for the ones specified?",
+    "a1": "catch",
+    "a2": "label",
+    "a3": "try",
+    "a4": "default",
+    "correct": "a4",
 
   },
 ]
