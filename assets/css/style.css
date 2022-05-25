@@ -1,37 +1,33 @@
 
 /* Define Master Color Palette */
 :root {
-  --color1: #3C6E71;
-  --color2: #FE6D73;
-  --color3: #FFEAEB;
-  --color4: #17C3B2;
-  --color5: #A1CBCD;
-
   --BGcolor: #F4A462;
-
-  --btnGrade1: #AED9E0;
-  --btnGrade2: #275E67;
 
   --cardGrade1: #F5C062;
   --cardGrade2: #264653d1;
 
   --questionBtn: #6281F4;
   --questionBG: #a462f4a7;
-  --border: #61F5BF;
-
-  --cardBG1: #00342d93;
-  --cardBG2: #00f5d48f;
+  /* --border: #61F5BF; */
+  --border: #FFEAEB;
 
   --btnBorder: #eceff1;
   --ansbtnBorder: #FFEAEB;
 
-  
   --headerBtnColor: #141619;
 
 }
 
+ /* ======================== Wrapper ======================== */
 
-/* ============ Header ============ */
+.wrapper {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+/* ======================== Header ======================== */
 header {
   display: flex;
   padding: 40px;
@@ -40,7 +36,6 @@ header {
   align-items: center;
   background-color: var(--BGcolor);
   color: #fff;
-  /* border-bottom:30px solid var(--color1); */
 }
 
 header h1 {
@@ -51,7 +46,25 @@ header h1 {
   color: var(--headerBtnColor);
 }
 
-/* ============ Main ============ */
+/* ======================== Body ======================== */
+body {
+  font-family: sans-serif;
+  background-color: var(--BGcolor);
+}
+
+
+/* ======================== Footer ======================== */
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  background: #13293d;
+  color: #fff;
+  border-bottom:30px #879274;
+  width: 100%;
+}
+
+/* ======================== Main DIV ======================== */
 
 main {
   display: flex;
@@ -90,37 +103,12 @@ main div q1 {
   justify-content: center;
 }
 
-/* main timerbox {
-  background: var(--color3);
-  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
-  border: 5px solid #eceff1;
-  border-radius: 8px;
-  box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
-  padding: 20px;
-  width: 100%;
-  height: 50%;
-  margin: 5px;
-  border:5px solid var(--border);
-}  */
-
 main q1 {
   margin-bottom: 10px;
   maring-top: 100px;
 }
 
-/* main scoreBox {
-  background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%);
-  border: 5px solid #eceff1;
-  border-radius: 8px;
-  box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
-    rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
-  padding: 20px;
-  height: 10px;
-  margin: 5px;
-  border:30px solid var(--border);
-} */
-
-/* ============ Cards ============ */
+/* ======================== Cards/Boxes Classes ======================== */
 
 .card {
   background: var(--questionBG);
@@ -248,32 +236,6 @@ main q1 {
   font-size: 25px;
 }
 
-/* ============ Div ============ */
-
-div .finalScoreCard {
-  display: flex;
-  padding-top: 10%;
-  margin-bottom: 50px;
-  justify-content: center;
-  align-items: center;
-
-}
-
-div textarea {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-div .finalScoreCard h2 {
-  display: flex;
-  flex-direction: column;
-  font-size: 30px;
-  padding: 15px;
-  justify-content: center;
-  align-items: center;
-}
-
 .question {
   background: var(--cardGrade1);
   border: 5px solid var(--btnBorder);
@@ -305,31 +267,38 @@ div .finalScoreCard h2 {
     font-size: 40px;
 }
 
-/* ============ Body ============ */
-body {
-  font-family: sans-serif;
-  background-color: var(--BGcolor);
+/* ======================== Final Score Card Page ======================== */
+
+div .finalScoreCard {
+  display: flex;
+  padding-top: 10%;
+  margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
-
-/* ============ Footer ============ */
-footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
-  background: #13293d;
-  color: #fff;
-  border-bottom:30px #879274;
-  width: 100%;
+div textarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ============ Button ============ */
+div .finalScoreCard h2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ======================== Buttons ======================== */
 button {
   /* background: radial-gradient(circle, var(--cardGrade1) 0%, var(--cardGrade2) 100%); */
   border-width: 6px;
   border-radius: 8px;
   color: var(--headerBtnColor);
-  */cursor: pointer;
+  cursor: pointer;
   font-size: 2em;
   letter-spacing: 0.21px;
   line-height: 16px;
@@ -351,23 +320,17 @@ button {
 }
 
 .start-button {
-  /* background: radial-gradient(circle, var(--btnGrade1) 0%, var(--btnGrade2) 100%); */
   background: #E9C46A;
+  border-color: var(--border);
 
 }
 
 .highScore-button {
   background: #E9C46A;
-}
-
- /* ============ Class Declerations ============ */
-
-.wrapper {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  border-color: var(--border);
 }
 
 .initalSubmitBtn {
   background: #E9C46A;
 }
+
