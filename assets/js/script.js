@@ -5,6 +5,8 @@
 // Debug Switch
 var Debug = false;
 
+var hasTimerStarted = false;
+
 
 var startButton = document.querySelector(".start-button");
 var highScoreButton = document.querySelector(".highScore-button");
@@ -182,6 +184,7 @@ function userAnswered(user, correct) {
     // User Selected Correct Answer -> Next Question
     currentUserScore++;
     lastResult.textContent = "Correct";
+    lastResult.style.backgroundColor = '#B2F462';
     scoreEl.textContent = "Score: " + currentUserScore;
     console.log("User Selected Correct Answer || " + user + "==" + correct + "Score = " + currentUserScore);
     nextQuestion();
@@ -190,6 +193,7 @@ function userAnswered(user, correct) {
     // User Selected INCORRECT Answer [Dock Time] -> Next Question
     console.log("User Selected Incorrect Answer || " + user + "!=" + correct);
     lastResult.textContent = "Incorrect (5 second penalty)";
+    lastResult.style.backgroundColor = '#F46269';
     scoreEl.textContent = "Score: " + currentUserScore;
     currentTime = currentTime - 5;
     nextQuestion();
@@ -246,24 +250,27 @@ function displayHighScore() {
 function countdown() {
   console.log("T1= " + currentTime);
 
-  var timeInterval = setInterval(function () {
-    currentTime--;
-    console.log("Waiting 1 sec! T= " + currentTime);
-    timerEl.textContent = "Time Left: " + currentTime + " s";
+  if (!(hasTimerStarted)) {
 
-    if (currentTime <= 0) {
-      clearInterval(timeInterval);
-      userAnswerProvided = true;
-      gameOver();
-      // Add End Game Logic | Pass player score
+    hasTimerStarted = true;
+    var timeInterval = setInterval(function () {
+      currentTime--;
+      console.log("Waiting 1 sec! T= " + currentTime);
+      timerEl.textContent = "Time Left: " + currentTime + " s";
 
-      // window.alert("Count Down Complete!")
-      // displayMessage();
-    }
+      if (currentTime <= 0) {
+        clearInterval(timeInterval);
+        userAnswerProvided = true;
+        gameOver();
+        // Add End Game Logic | Pass player score
 
-    //Loop at Feq = 1000ms / 1sec
-  }, 1000);
+        // window.alert("Count Down Complete!")
+        // displayMessage();
+      }
 
+      //Loop at Feq = 1000ms / 1sec
+    }, 1000);
+  }
 }
 
 // ################# gameOver #################
@@ -280,7 +287,8 @@ function gameOver() {
 function finalScoreScreen(score) {
   console.log("FINAL SCORE LOGIC!");
   finalScoreCard.style.display = "block";
-
+  highScoreCard.style.display = "none";
+  questionCard.style.display = "none";
   finalDisplayEl.textContent = "Your Final Score is " + score;
 }
 
@@ -372,14 +380,20 @@ function gameReset() {
   userAnswerProvided = false;
   currentCorrectAnswer = "VOID";
   currentUserScore = 0;
+  scoreEl.textContent = "Score: 0";
+  timerEl.textContent = "Time Left: " + gameLength + " s";
   currentQuestionCount = 0;
   userName = "VOID";
   finalScore = 0;
+  hasTimerStarted = false;
+  lastResult.style.backgroundColor = '#6281F4';
+  lastResult.textContent = "";
 }
 
 // =========================== MAIN  ==============================
 
 init();
+// Now waiting for user to press Start or High Score Button...
 
 
 // =========================== END MAIN  ==========================
