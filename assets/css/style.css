@@ -144,7 +144,7 @@ main q1 {
     rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
   padding: 20px;
   width: 90%;
-  height: 870px;
+  height: 820px;
   border:10px solid var(--border);
   margin-bottom: 50px;
 }
@@ -331,7 +331,7 @@ button {
   font-size: 2em;
   letter-spacing: 0.21px;
   line-height: 16px;
-  max-width: 255px;
+  width: auto;
   padding: 20px 52px;
   text-align: center;
   transition-duration: 0.15s;

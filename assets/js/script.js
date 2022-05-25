@@ -288,10 +288,10 @@ function finalScoreScreen(score) {
 function askQuestion(askObj) {
 
   questionEL.textContent = askObj.question;
-  answer1El.textContent = askObj.a1;
-  answer2El.textContent = askObj.a2;
-  answer3El.textContent = askObj.a3;
-  answer4El.textContent = askObj.a4;
+  answer1El.textContent = "A:          " + askObj.a1;
+  answer2El.textContent = "B:          " + askObj.a2;
+  answer3El.textContent = "C:          " + askObj.a3;
+  answer4El.textContent = "D:          " + askObj.a4;
 
   currentCorrectAnswer = askObj.correct;
   console.log("Answer = " + currentCorrectAnswer);
