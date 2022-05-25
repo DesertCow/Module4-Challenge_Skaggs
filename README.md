@@ -65,14 +65,17 @@ Version 0.2</h5>
 <br>
 <br>
 
-<h3 align="center">💼 💼 Mock Up / Protype 💼 💼</h3>
+<h3 align="center">📐 📐 Mock Up / Protype 📐 📐</h3>
 
 ---
 <p align="center">
   <img src="./dev-notes/Module_4_Protype.jpg" width="550" alt="Hand drawing of app layout")
 </p>
 
-<h3 align="center">💼 💼 App Demo 💼 💼</h3>
+<br>
+<br>
+
+<h3 align="center">🎭 🎭 App Demo 🎭 🎭</h3>
 
 ---
 <p align="center">
