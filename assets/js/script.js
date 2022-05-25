@@ -1,12 +1,9 @@
 // Clayton Skaggs
-// 5-22-2022
+// 5-24-2022
 // ==================== Varriable Decleration =====================
 
 // Debug Switch
 var Debug = false;
-
-// Set Game Length (Seconds)
-var gameLength = 15;
 
 var startButton = document.querySelector(".start-button");
 var highScoreButton = document.querySelector(".highScore-button");
@@ -15,6 +12,9 @@ var ansButton2 = $('#btn-answer2');
 var ansButton3 = $('#btn-answer3');
 var ansButton4 = $('#btn-answer4');
 var userSubmitScore = $('#btn-initalSubmit');
+
+// Set Game Length (Seconds)
+var gameLength = 45;
 
 
 var highScoreCard = document.getElementById("highScoreCard");
@@ -99,6 +99,11 @@ let questionArray = [
   },
 ]
 
+// ################# Button Listeners #################
+
+startButton.addEventListener("click", startGame);
+highScoreButton.addEventListener("click", displayHighScore);
+
 // ################# Define Click Listeners #################
 
 ansButton1.on('click', function () {
@@ -136,12 +141,13 @@ ansButton4.on('click', function () {
 userSubmitScore.on('click', function () {
   console.log("New High Score Submitted");
   var userName = document.getElementById("userInitals").value;
+  finalScoreCard.style.display = "none";
   // userName = userNameEl.textContent;
   console.log("User Name= " + userName)
   updateHighScore(finalScore, userName);
 });
 
-// #################  ################
+// ################# updateHighScore ################
 
 function updateHighScore(submitScore, user) {
   console.log("Score = " + submitScore + " || Name = " + user);
@@ -149,20 +155,21 @@ function updateHighScore(submitScore, user) {
 
 }
 
+// ################# userAnswered ################
 function userAnswered(user, correct) {
   if (user === correct) {
     // User Selected Correct Answer -> Next Question
     currentUserScore++;
     lastResult.textContent = "Correct";
-    scoreEl.textContent = currentUserScore;
+    scoreEl.textContent = "Score: " + currentUserScore;
     console.log("User Selected Correct Answer || " + user + "==" + correct + "Score = " + currentUserScore);
     nextQuestion();
   }
   else {
     // User Selected INCORRECT Answer [Dock Time] -> Next Question
     console.log("User Selected Incorrect Answer || " + user + "!=" + correct);
-    lastResult.textContent = "Incorrect";
-    scoreEl.textContent = currentUserScore;
+    lastResult.textContent = "Incorrect (5 second penalty)";
+    scoreEl.textContent = "Score: " + currentUserScore;
     currentTime = currentTime - 5;
     nextQuestion();
   }
@@ -197,46 +204,10 @@ var score5 = {
   playerInitials: "MKD"
 }
 
-// ==================== Button Listeners  =====================
-startButton.addEventListener("click", startGame);
-highScoreButton.addEventListener("click", displayHighScore);
 
 // ==================== Function Decleration  =====================
 
-// ################# FUNC_NAME #################
-
-
-// ################# FUNC_NAME #################
-
-
-
-
-
-// ################# askQuestion #################
-
-// function askQuestion(questionArray, answerArray, questionNumber) {
-// function askQuestion(qArray) {
-
-//   for (var i = 0; i < qArray.length; i++) {
-//     var iPlus = i + 1;
-//     questionEL.textContent = qArray[i].question;
-//     answer1El.textContent = qArray[i].a1;
-//     answer2El.textContent = qArray[i].a2;
-//     answer3El.textContent = qArray[i].a3;
-//     answer4El.textContent = qArray[i].a4;
-
-//     questionCountEl.textContent = "Question #" + iPlus;
-//     console.log(questionEL.textContent);
-//     // questionEL.textContent = "How many items are in a dozen?";
-//   }
-
-//   // questionEL.textContent = "How many items are in a dozen?";
-// }
-
-
-
 // ################# displayHighScore #################
-
 function displayHighScore() {
 
   questionCard.style.display = "none";
@@ -248,7 +219,6 @@ function displayHighScore() {
   score3EL.textContent = "#3: " + score3.data + " - " + score3.playerInitials;
   score4EL.textContent = "#4: " + score4.data + " - " + score4.playerInitials;
   score5EL.textContent = "#5: " + score5.data + " - " + score5.playerInitials;
-
 }
 
 // ################# countdown #################
@@ -258,7 +228,7 @@ function countdown() {
   var timeInterval = setInterval(function () {
     currentTime--;
     console.log("Waiting 1 sec! T= " + currentTime);
-    timerEl.textContent = currentTime + " s";
+    timerEl.textContent = "Time Left: " + currentTime + " s";
 
     if (currentTime <= 0) {
       clearInterval(timeInterval);
@@ -274,16 +244,18 @@ function countdown() {
   }, 1000);
 
 }
-// ################# FUNC_NAME #################
+
+// ################# gameOver #################
 function gameOver() {
   console.log("GAME OVER!");
-
+  currentTime = 0;
   // Hide Question from User
   questionCard.style.display = "none";
   finalScore = currentUserScore;
   finalScoreScreen(finalScore);
 }
 
+// ################# finalScoreScreen #################
 function finalScoreScreen(score) {
   console.log("FINAL SCORE LOGIC!");
   finalScoreCard.style.display = "block";
@@ -294,9 +266,6 @@ function finalScoreScreen(score) {
 // ################# askQuestion #################
 function askQuestion(askObj) {
 
-  //   console.log("Q :" + askObj.question);
-  //   console.log("a1: " + askObj.a1);
-
   questionEL.textContent = askObj.question;
   answer1El.textContent = askObj.a1;
   answer2El.textContent = askObj.a2;
@@ -305,31 +274,16 @@ function askQuestion(askObj) {
 
   currentCorrectAnswer = askObj.correct;
   console.log("Answer = " + currentCorrectAnswer);
-
-  //   // Wait For user Response
-  //   // var responseWait = setInterval(function () {
-
-  //   //   if (userAnswerProvided === false) {
-  //   //     //   // Contioisuly Check if user has selected an answer
-  //   //     console.log("Current Time = " + currentTime);
-  //   //     console.log("Waiting for user to select an answer...");
-  //   //   }
-
-  //   // }, 500);
-
-
-  //   console.log("User HAS Selected! = " + userAnswerSelection);
-  //   //}
-  //   //gameOver();
-  //   // if ( === askObj.correct)
-
-  //   //   return;
 }
 
-// ################# FUNC_NAME #################
+// ################# startGame #################
 function startGame() {
   questionCard.style.display = "block";
   highScoreCard.style.display = "none";
+  finalScoreCard.style.display = "none";
+  gameReset();
+
+  questionCountEl.textContent = "Question #" + (currentQuestionCount + 1);
 
   let currentQuestionObj = {
 
@@ -340,24 +294,21 @@ function startGame() {
     "a4": questionArray[currentQuestionCount].a4,
     "correct": questionArray[currentQuestionCount].correct,
 
-    // "question": "What is the most expensive painting to be sold at auction?",
-    // "a1": "The Starry Night",
-    // "a2": "Salvator Mundi",
-    // "a3": "Mona Lisa",
-    // "a4": "Love is in the Bin",
-    // "correct": "a2",
   }
 
   countdown();
   askQuestion(currentQuestionObj);
-
 }
 
+// ################# nextQuestion #################
 function nextQuestion() {
 
   currentQuestionCount++;
+  questionCountEl.textContent = "Question #" + (currentQuestionCount + 1);
 
-  if (currentQuestionCount <= questionArray.length) {
+  console.log(currentQuestionCount + " <= " + questionArray.length)
+
+  if (currentQuestionCount < questionArray.length) {
 
     let currentQuestionObj = {
 
@@ -367,25 +318,24 @@ function nextQuestion() {
       "a3": questionArray[currentQuestionCount].a3,
       "a4": questionArray[currentQuestionCount].a4,
       "correct": questionArray[currentQuestionCount].correct,
+
     }
-
     askQuestion(currentQuestionObj);
-
   }
   else {
     // Reached End of Questions/ Game Over
     gameOver();
   }
-
-
 }
 
+// ################# init #################
 function init() {
 
   // Hide High Score Screen at first
   highScoreCard.style.display = "none";
   questionCard.style.display = "none";
   finalScoreCard.style.display = "none";
+
 
   // Set Starting Time
   currentTime = gameLength;
@@ -394,6 +344,17 @@ function init() {
 
 }
 
+// ################# gameReset #################
+function gameReset() {
+  currentTime = gameLength;
+  userAnswerSelection = "";
+  userAnswerProvided = false;
+  currentCorrectAnswer = "VOID";
+  currentUserScore = 0;
+  currentQuestionCount = 0;
+  userName = "VOID";
+  finalScore = 0;
+}
 
 // =========================== MAIN  ==============================
 

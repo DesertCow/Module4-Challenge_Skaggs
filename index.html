@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <title>Ultimate Web API Study Quiz</title>
@@ -33,55 +34,53 @@
           <p class="question"></p>
           <ul class="answers">
             <div class="col">
-              <li><button class="btn btn-secondary answer1 ansbtn" id="btn-answer1"></button></li>
-              <li><button class="btn btn-secondary answer2 ansbtn" id="btn-answer2"></button></li>
-              <li><button class="btn btn-secondary answer3 ansbtn" id="btn-answer3"></button></li>
-              <li><button class="btn btn-secondary answer4 ansbtn" id="btn-answer4"></button></li>    
+              <li class="row"><button class="btn btn-secondary answer1 ansbtn" id="btn-answer1"></button></li>
+              <li class="row"><button class="btn btn-secondary answer2 ansbtn" id="btn-answer2"></button></li>
+              <li class="row"><button class="btn btn-secondary answer3 ansbtn" id="btn-answer3"></button></li>
+              <li class="row"><button class="btn btn-secondary answer4 ansbtn" id="btn-answer4"></button></li>    
             </div>
-            <div class="col">
-              <div class="col timerCard" id="timerCard">
+            <div class="">
+              <div class="timerCard" id="timerCard">
                 <timecard>
-                  <timerbox>
-                    <h2 class="displayTimer">45</h2>
-                  </timerbox>
-                  <lastResultbox>
+                  <box>
+                    <h2 class="displayTimer timerBox">Time Left: 45 s</h2>
+                  </box>
+                  <box>
                       <h2 class="lastResult">Incorrect!</h2>
-                  </lastResultbox>
+                  </box>
                 </timecard>
               </div>
               <div>
-                <scorebox>
-                  <h2 class="displayScore">0</h2>
-                </scorebox>
+                <box>
+                  <h2 class="displayScore">Score: 0</h2>
+                </box>
               </div>
             </div>
           </ul>
         </div>
-        <div id="finalScoreCard" id="finalScoreCard">
+        <div class="finalScoreCard" id="finalScoreCard">
           <h2>Congradualtions!</h2>
           <h2 class="finaldisplayScore"></h2>
-          <textarea id="userInitals" placeholder="Please Enter Initals"></textarea>
-          <button class="btn btn-secondary" id="btn-initalSubmit"></button>
+          <textarea id="userInitals" placeholder="Please Enter Name"></textarea>
+          <button class="btn btn-secondary" id="btn-initalSubmit">Submit Name</button>
         </div>
     </main>
-
-
-    <footer>
-      <ul>
-        <li><h5>Made by 🌵 Desert-Cow 🐄</h5></li>
-        <li><p>&copy; 2022 Monkey See Monkey Do LLC.</p></li>
-      </ul>
-    </footer>
-
-
-
-  </div>
-  
-
-  <!-- ========= Main Script Call ========= -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-  <script src="./assets/js/script.js"></script>
-
 </body>
+
+<footer>
+  <ul>
+    <li>
+      <h5>Made by 🌵 Desert-Cow 🐄</h5>
+    </li>
+    <li>
+      <p>&copy; 2022 Monkey See Monkey Do LLC.</p>
+    </li>
+  </ul>
+</footer>
+</div>
+<!-- ========= Main Script Call ========= -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="./assets/js/script.js"></script>
+
 </html>

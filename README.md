@@ -6,7 +6,7 @@
 
 <h5 align="center">
 
-💼 Module 4 Challenge 💼<br>
+🎯 Module 4 Challenge 🎯<br>
 By Clayton Skaggs<br>
 (WW21.2) / May 24th 2022
 
