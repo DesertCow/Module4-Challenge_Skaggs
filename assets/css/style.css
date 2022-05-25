@@ -367,3 +367,7 @@ button {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.initalSubmitBtn {
+  background: #E9C46A;
+}
