@@ -5,6 +5,7 @@
 // Debug Switch
 var Debug = false;
 
+
 var startButton = document.querySelector(".start-button");
 var highScoreButton = document.querySelector(".highScore-button");
 var ansButton1 = $('#btn-answer1');
@@ -99,10 +100,30 @@ let questionArray = [
   },
 ]
 
+
+
 // ################# Button Listeners #################
 
 startButton.addEventListener("click", startGame);
 highScoreButton.addEventListener("click", displayHighScore);
+
+// ################# Mouse Over Listeners #################
+
+startButton.addEventListener('mouseover', function handleMouseOver() {
+  startButton.style.backgroundColor = '#DAC297';
+});
+
+startButton.addEventListener('mouseout', function handleMouseOut() {
+  startButton.style.backgroundColor = '#F5C062';
+});
+
+highScoreButton.addEventListener('mouseover', function handleMouseOver() {
+  highScoreButton.style.backgroundColor = '#DAC297';
+});
+
+highScoreButton.addEventListener('mouseout', function handleMouseOut() {
+  highScoreButton.style.backgroundColor = '#F5C062';
+});
 
 // ################# Define Click Listeners #################
 
