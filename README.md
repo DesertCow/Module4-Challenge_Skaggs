@@ -17,6 +17,23 @@ Version 0.2</h5>
 
 <br>
 <br>
+
+<h3 align="center">📡 📡 Deployment Information 📡 📡</h3>
+
+---
+
+<div align="center">
+🚀 <a href="https://github.com/DesertCow/Module4-Challenge_Skaggs">github.com/DesertCow/Module4-Challenge_Skaggs</a> 🚀
+<br>
+<br>
+🛰️ <a href="https://desertcow.github.io/Module4-Challenge_Skaggs">desertcow.github.io/Module4-Challenge_Skaggs/</a> 🛰️
+</div>
+
+---
+
+
+<br>
+<br>
 <br>
 <br>
 
@@ -81,24 +98,6 @@ Version 0.2</h5>
 <p align="center">
   <img src="./dev-notes/Final_Demo.gif" alt="Demo of Quiz App")
 </p>
-
-<br>
-<br>
-<br>
-<br>
-
-<h3 align="center">📡 📡 Deployment Information 📡 📡</h3>
-
----
-
-<div align="center">
-🚀 <a href="https://github.com/DesertCow/Module4-Challenge_Skaggs">github.com/DesertCow/Module4-Challenge_Skaggs</a> 🚀
-<br>
-<br>
-🛰️ <a href="https://desertcow.github.io/Module4-Challenge_Skaggs">desertcow.github.io/Module4-Challenge_Skaggs/</a> 🛰️
-</div>
-
----
 
 <br>
 <br>
